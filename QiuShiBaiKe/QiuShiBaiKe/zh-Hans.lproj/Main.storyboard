@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--糗事百科-->
         <scene sceneID="YwR-ou-Thh">
             <objects>
-                <tableViewController storyboardIdentifier="RootViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ggp-Hl-Knz" customClass="ViewController" sceneMemberID="viewController">
+                <tableViewController id="Ggp-Hl-Knz" customClass="ViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="VO2-4y-9sO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -17,11 +17,11 @@
                             <outlet property="delegate" destination="Ggp-Hl-Knz" id="RDw-aH-73a"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Mlh-Ad-Soc"/>
+                    <navigationItem key="navigationItem" title="糗事百科" id="Mlh-Ad-Soc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zTm-iR-yUq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="381" y="197"/>
+            <point key="canvasLocation" x="527" y="197"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yUq-48-xDX">

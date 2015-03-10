@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 
+#import "QBNetwork.h"
+#import "QBQiuShiItem.h"
+
 @interface ViewController ()
 
 @end
@@ -17,6 +20,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    NSArray* data =[[QBNetwork sharedNetwork] getQiuShiList];
+    for (NSDictionary* dic in data) {
+        QBQiuShiItem* item = [[QBQiuShiItem alloc] initWithDictionary: dic];
+        NSLog(@"%@", item);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
