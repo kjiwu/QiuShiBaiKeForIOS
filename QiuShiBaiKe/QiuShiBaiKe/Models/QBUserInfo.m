@@ -8,11 +8,21 @@
 
 #import "QBUserInfo.h"
 
+#define Default_Header @"default.png";
+#define Default_Name NSLocalizedString(@"Default_Username", nil)
+
 @implementation QBUserInfo
 
 @synthesize loginName, header, userId, lastDevice, state;
 
 -(instancetype) initWithDictionary:(NSDictionary *)data {
+    
+    loginName = Default_Name;
+    header = Default_Header;
+    userId = @"";
+    lastDevice = @"";
+    state = 0;
+    
     
     if([NSNull null] != (id)data) {
         loginName = [data objectForKey: @"login"];
