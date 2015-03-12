@@ -1,0 +1,115 @@
+http://m2.qiushibaike.com/user/signin 用户登录(POST)
+{"login":(用户名),"pass":(密码))}
+
+OK
+{"content": " [发自Windows.Phone客户端]", "anonymous": false, "id": "251625979", "err": 0, "user": {"last_visited_at": 1404736721, "created_at": 1404736721, "last_device": "android_3.0.2", "id": "17643051", "state": "bonded", "role": "n", "login": (用户名), "email": "kjiwu_001@sina.com", "icon": null}}
+
+
+
+http://m2.qiushibaike.com/article/list/latest?page=1&count=50 获取最新糗事列表的记录 
+
+糗事列表的JSON数据
+{
+  "count": 30, //获取的糗事数量
+
+  //糗事数据列表
+  "items": [
+    {
+      "image": null, //图片文件名
+      "published_at": 1420590656,
+      "tag": "",
+      "user": null, //用户信息
+      "image_size": null, //图片大小
+      "id": "98113828", //糗事ID
+      "votes": {
+        "down": -32,
+        "up": 48
+      }, //点赞信息
+      "created_at": 1420590656,
+      "content": "这个季节！最可悲的事情莫过于半夜得起来上班了……哎！赶紧起了！要迟到了555555……", //具体文字内容
+      "state": "publish",
+      "comments_count": 0, //评论数
+      "allow_comment": true
+    },
+    {
+      "image": "98127830.jpg",
+      "published_at": 1420623734,
+      "tag": "",
+      "user": {
+        "created_at": "0",
+        "last_device": null,
+        "role": "n",
+        "last_visited_at": "0",
+        "state": "active",
+        "login": "人间冰器11", //用户名
+        "id": "2907800", //用户id
+        "icon": "20130829132433.jpg" //用户头像
+      },
+      "image_size": {
+        "s": [
+          220,
+          310,
+          12930
+        ],
+        "m": [
+          448,
+          631,
+          58747
+        ]
+      },
+      "id": "98127830",
+      "votes": {
+        "down": -22, 
+        "up": 58
+      },
+      "created_at": 1420623734,
+      "content": "真实的中国",
+      "state": "publish",
+      "comments_count": 0,
+      "allow_comment": true
+    }
+  ],
+  "total": 200000, //总共的糗事数量
+  "page": 1 //当前分页的位置
+}
+
+http://pic.qiushibaike.com/system/pictures/(糗事ID前4位)/(糗事ID)/medium/(图片文件名) 获取糗事对应的图片
+
+http://m2.qiushibaike.com/article/(糗事ID)/comments?page=1&count=50 获取对应文章的评论
+{
+	"count": 1, 
+	"items": 
+		[
+			{
+				"content": "赞你一下", //评论内容
+				//评论人信息
+				"user": 
+					{
+						"last_visited_at": 1419263766, //最后登录时间
+						"created_at": 1419263766, 
+						"last_device": "android_4.0.1", //用户设备
+						"state": "active", 
+						"role": "n", 
+						"login": "看的睡不着", //用户昵称
+						"id": "24175356", 
+						"icon": "20150101075219.jpg //用户头像
+					}, 
+				"id": "251608021", 
+				"floor": 1 //评论楼层
+			}
+		], 
+	"total": 1, 
+	"page": 1
+}
+
+
+http://m2.qiushibaike.com/article/98130347/comment/create //提交评论（POST）
+{"content":"过了吧 [发自Windows.Phone客户端]","anonymous":false}
+
+OK
+{"content": "过了吧 [发自Windows.Phone客户端]", "anonymous": false, "id": "251633383", "err": 0, "user": {"last_visited_at": 1404736721, "created_at": 1404736721, "state": "bonded", "email": "kjiwu_001@sina.com", "last_device": "android_3.0.2", "role": "n", "login": "kjiwu", "id": "17643051", "icon": null}}
+
+
+
+http://www.qiushibaike.com/new3/vote/Base64（糗事ID+自己的用户ID）提交点赞
+http://www.qiushibaike.com/new3/vote/Base64（糗事ID-自己的用户ID）提交点差

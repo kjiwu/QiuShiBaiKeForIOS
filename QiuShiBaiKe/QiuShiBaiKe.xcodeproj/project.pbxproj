@@ -36,6 +36,7 @@
 		3AB0E73F1AAF2C6500F14047 /* QBQiuShiItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0E73E1AAF2C6500F14047 /* QBQiuShiItem.m */; };
 		3AB0E7421AAF2CCE00F14047 /* QBUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0E7411AAF2CCE00F14047 /* QBUserInfo.m */; };
 		3AB0E7451AAF2D9500F14047 /* QBVoteInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0E7441AAF2D9500F14047 /* QBVoteInfo.m */; };
+		3AFEA6481AB1E54200960E53 /* 糗事百科数据接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AFEA6471AB1E54200960E53 /* 糗事百科数据接口.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		3AB0E7411AAF2CCE00F14047 /* QBUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBUserInfo.m; path = Models/QBUserInfo.m; sourceTree = "<group>"; };
 		3AB0E7431AAF2D9500F14047 /* QBVoteInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBVoteInfo.h; path = Models/QBVoteInfo.h; sourceTree = "<group>"; };
 		3AB0E7441AAF2D9500F14047 /* QBVoteInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBVoteInfo.m; path = Models/QBVoteInfo.m; sourceTree = "<group>"; };
+		3AFEA6471AB1E54200960E53 /* 糗事百科数据接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "糗事百科数据接口.txt"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 		3A1466231AAF1290008E6F16 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3AFEA6471AB1E54200960E53 /* 糗事百科数据接口.txt */,
 				3A1466241AAF1290008E6F16 /* Info.plist */,
 				3A1466251AAF1290008E6F16 /* main.m */,
 				3AB0E7261AAF1B9500F14047 /* InfoPlist.strings */,
@@ -372,6 +375,7 @@
 				3AB0E72C1AAF1C1A00F14047 /* Localizable.strings in Resources */,
 				3A14662F1AAF1290008E6F16 /* Main.storyboard in Resources */,
 				3AB0E7241AAF1B9500F14047 /* InfoPlist.strings in Resources */,
+				3AFEA6481AB1E54200960E53 /* 糗事百科数据接口.txt in Resources */,
 				3A1466341AAF1290008E6F16 /* LaunchScreen.xib in Resources */,
 				3A1466311AAF1290008E6F16 /* Images.xcassets in Resources */,
 			);
