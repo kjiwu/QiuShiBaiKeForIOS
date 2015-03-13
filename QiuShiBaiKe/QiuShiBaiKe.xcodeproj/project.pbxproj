@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3A1466261AAF1290008E6F16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1466251AAF1290008E6F16 /* main.m */; };
 		3A1466291AAF1290008E6F16 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1466281AAF1290008E6F16 /* AppDelegate.m */; };
-		3A14662F1AAF1290008E6F16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A14662D1AAF1290008E6F16 /* Main.storyboard */; };
 		3A1466311AAF1290008E6F16 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1466301AAF1290008E6F16 /* Images.xcassets */; };
 		3A1466341AAF1290008E6F16 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1466321AAF1290008E6F16 /* LaunchScreen.xib */; };
 		3A1466401AAF1290008E6F16 /* QiuShiBaiKeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A14663F1AAF1290008E6F16 /* QiuShiBaiKeTests.m */; };
@@ -29,7 +28,8 @@
 		3A4D30371AAFF17700D2420E /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D30251AAFF17700D2420E /* UIImageView+HighlightedWebCache.m */; };
 		3A4D30381AAFF17700D2420E /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D30271AAFF17700D2420E /* UIImageView+WebCache.m */; };
 		3A4D30391AAFF17700D2420E /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4D30291AAFF17700D2420E /* UIView+WebCacheOperation.m */; };
-		3AB0E71D1AAF19D300F14047 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0E71C1AAF19D300F14047 /* ViewController.m */; };
+		3A709CF71AB316C900601C39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A709CF61AB316C900601C39 /* ViewController.m */; };
+		3A709CF91AB317B400601C39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A709CF81AB317B400601C39 /* Main.storyboard */; };
 		3AB0E7241AAF1B9500F14047 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AB0E7261AAF1B9500F14047 /* InfoPlist.strings */; };
 		3AB0E72C1AAF1C1A00F14047 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AB0E72E1AAF1C1A00F14047 /* Localizable.strings */; };
 		3AB0E7391AAF1FF100F14047 /* QBNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0E7381AAF1FF100F14047 /* QBNetwork.m */; };
@@ -55,7 +55,6 @@
 		3A1466251AAF1290008E6F16 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A1466271AAF1290008E6F16 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A1466281AAF1290008E6F16 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3A14662E1AAF1290008E6F16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A1466301AAF1290008E6F16 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3A1466331AAF1290008E6F16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3A1466391AAF1290008E6F16 /* QiuShiBaiKeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QiuShiBaiKeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,12 +93,12 @@
 		3A4D30271AAFF17700D2420E /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		3A4D30281AAFF17700D2420E /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		3A4D30291AAFF17700D2420E /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		3AB0E71B1AAF19D300F14047 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ViewControllers/ViewController.h; sourceTree = "<group>"; };
-		3AB0E71C1AAF19D300F14047 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ViewControllers/ViewController.m; sourceTree = "<group>"; };
+		3A709CF51AB316C900601C39 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ViewControllers/ViewController.h; sourceTree = "<group>"; };
+		3A709CF61AB316C900601C39 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ViewControllers/ViewController.m; sourceTree = "<group>"; };
+		3A709CF81AB317B400601C39 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Views/Main.storyboard; sourceTree = "<group>"; };
 		3AB0E7251AAF1B9500F14047 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3AB0E7271AAF1B9600F14047 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		3AB0E7281AAF1BC000F14047 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.xib"; sourceTree = "<group>"; };
-		3AB0E7291AAF1BC000F14047 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Main.storyboard"; sourceTree = "<group>"; };
 		3AB0E72D1AAF1C1A00F14047 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3AB0E72F1AAF1C1C00F14047 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		3AB0E7371AAF1FF100F14047 /* QBNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBNetwork.h; path = Network/QBNetwork.h; sourceTree = "<group>"; };
@@ -200,7 +199,7 @@
 		3A1466491AAF17F8008E6F16 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3A14662D1AAF1290008E6F16 /* Main.storyboard */,
+				3A709CF81AB317B400601C39 /* Main.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -208,8 +207,8 @@
 		3A14664A1AAF17FF008E6F16 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3AB0E71B1AAF19D300F14047 /* ViewController.h */,
-				3AB0E71C1AAF19D300F14047 /* ViewController.m */,
+				3A709CF51AB316C900601C39 /* ViewController.h */,
+				3A709CF61AB316C900601C39 /* ViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -373,11 +372,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AB0E72C1AAF1C1A00F14047 /* Localizable.strings in Resources */,
-				3A14662F1AAF1290008E6F16 /* Main.storyboard in Resources */,
 				3AB0E7241AAF1B9500F14047 /* InfoPlist.strings in Resources */,
 				3AFEA6481AB1E54200960E53 /* 糗事百科数据接口.txt in Resources */,
 				3A1466341AAF1290008E6F16 /* LaunchScreen.xib in Resources */,
 				3A1466311AAF1290008E6F16 /* Images.xcassets in Resources */,
+				3A709CF91AB317B400601C39 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,7 +404,6 @@
 				3A4D30391AAFF17700D2420E /* UIView+WebCacheOperation.m in Sources */,
 				3A4D302A1AAFF17700D2420E /* MKAnnotationView+WebCache.m in Sources */,
 				3A4D30361AAFF17700D2420E /* UIImage+WebP.m in Sources */,
-				3AB0E71D1AAF19D300F14047 /* ViewController.m in Sources */,
 				3A4D30301AAFF17700D2420E /* SDWebImageDownloaderOperation.m in Sources */,
 				3A4D302E1AAFF17700D2420E /* SDWebImageDecoder.m in Sources */,
 				3A1466291AAF1290008E6F16 /* AppDelegate.m in Sources */,
@@ -416,6 +414,7 @@
 				3A1466261AAF1290008E6F16 /* main.m in Sources */,
 				3AB0E7451AAF2D9500F14047 /* QBVoteInfo.m in Sources */,
 				3A4D30311AAFF17700D2420E /* SDWebImageManager.m in Sources */,
+				3A709CF71AB316C900601C39 /* ViewController.m in Sources */,
 				3AB0E7391AAF1FF100F14047 /* QBNetwork.m in Sources */,
 				3A4D302C1AAFF17700D2420E /* SDImageCache.m in Sources */,
 			);
@@ -440,15 +439,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3A14662D1AAF1290008E6F16 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3A14662E1AAF1290008E6F16 /* Base */,
-				3AB0E7291AAF1BC000F14047 /* zh-Hans */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3A1466321AAF1290008E6F16 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
