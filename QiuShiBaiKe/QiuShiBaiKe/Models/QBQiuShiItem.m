@@ -16,13 +16,13 @@
 
 -(instancetype) initWithDictionary: (NSDictionary *)data {
     
-    itemId = [data objectForKey: @"id"];
-    image = [data objectForKey: @"image"];
+    itemId       = [data objectForKey: @"id"];
+    image        = [data objectForKey: @"image"];
     allowComment = [[data objectForKey: @"allow_comment"] integerValue] == 1 ? YES : NO;
     commentCount = (int)[[data objectForKey: @"comments_count"] integerValue];
-    content = [data objectForKey: @"content"];
-    user = [[QBUserInfo alloc] initWithDictionary: [data objectForKey: @"user"]];
-    vote = [[QBVoteInfo alloc] initWithDictionary: [data objectForKey: @"vote"]];
+    content      = [data objectForKey: @"content"];
+    user         = [[QBUserInfo alloc] initWithDictionary: [data objectForKey: @"user"]];
+    vote         = [[QBVoteInfo alloc] initWithDictionary: [data objectForKey: @"vote"]];
     
     return self;
 }

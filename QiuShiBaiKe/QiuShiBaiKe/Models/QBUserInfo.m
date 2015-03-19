@@ -17,21 +17,21 @@
 
 -(instancetype) initWithDictionary:(NSDictionary *)data {
     
-    loginName = Default_Name;
-    header = Default_Header;
-    userId = @"";
+    loginName  = Default_Name;
+    header     = Default_Header;
+    userId     = @"";
     lastDevice = @"";
-    state = 0;
-    
-    
+    state      = 0;
+
+
     if([NSNull null] != (id)data) {
-        loginName = [data objectForKey: @"login"];
-        header = [data objectForKey: @"icon"];
-        userId = [data objectForKey: @"id"];
+        loginName  = [data objectForKey: @"login"];
+        header     = [data objectForKey: @"icon"];
+        userId     = [data objectForKey: @"id"];
         lastDevice = [data objectForKey: @"last_device"];
-        state = [data objectForKey: @"state"];
+        state      = [data objectForKey: @"state"];
     }
-    
+
     return self;
 }
 

@@ -1,13 +1,13 @@
 //
-//  ViewController.h
+//  QBMeViewController.h
 //  QiuShiBaiKe
 //
-//  Created by wulei on 15-3-13.
+//  Created by wulei on 15-3-19.
 //  Copyright (c) 2015年 wulei. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UITableViewController
+@interface QBMeViewController : UIViewController
 
 @end
