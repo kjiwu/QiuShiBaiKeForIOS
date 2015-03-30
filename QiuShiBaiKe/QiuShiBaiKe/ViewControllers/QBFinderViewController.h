@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QBFinderViewController : UIViewController
+@interface QBFinderViewController : UITableViewController
 
 @end

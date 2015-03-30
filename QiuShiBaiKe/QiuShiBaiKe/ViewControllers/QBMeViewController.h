@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QBMeViewController : UIViewController
+@interface QBMeViewController : UITableViewController
 
 @end

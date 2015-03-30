@@ -30,7 +30,7 @@
 
 -(NSArray*) getQiuShiList {
     
-    NSString* urlStr = [NSString stringWithFormat:@"%@%@", QiuShiBaiKe_GetData, [NSNumber numberWithInt:QiuShiBaiKe_GetCount]];
+    NSString* urlStr = [NSString stringWithFormat:QiuShiBaiKe_GetData, [NSNumber numberWithInt: 1], [NSNumber numberWithInt:QiuShiBaiKe_GetCount]];
     NSURL* url = [NSURL URLWithString: urlStr];
     
     NSURLRequest* request = [[NSURLRequest alloc] initWithURL: url cachePolicy: NSURLRequestReloadIgnoringLocalCacheData timeoutInterval: 5];

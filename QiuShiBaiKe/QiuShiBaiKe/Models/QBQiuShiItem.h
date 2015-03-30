@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#import "QBUserInfo.h"
+#import "QBVoteInfo.h"
+
 @class QBUserInfo, QBVoteInfo;
 
 @interface QBQiuShiItem : NSObject

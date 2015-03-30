@@ -7,8 +7,6 @@
 //
 
 #import "QBQiuShiItem.h"
-#import "QBUserInfo.h"
-#import "QBVoteInfo.h"
 
 @implementation QBQiuShiItem
 

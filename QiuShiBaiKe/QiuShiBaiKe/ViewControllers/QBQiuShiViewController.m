@@ -7,85 +7,72 @@
 //
 
 #import "QBQiuShiViewController.h"
+#import "UIImageView+WebCache.h"
+#import "QBNetwork.h"
+#import "QBQiuShiItem.h"
 
 @interface QBQiuShiViewController ()
 
 @end
 
-@implementation QBQiuShiViewController
+@implementation QBQiuShiViewController{
+    
+    NSArray *items;
+    
+    QBNetwork *network;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    network = [[QBNetwork alloc] init];
+    items = [network getQiuShiList];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+    
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return items.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    static NSString *identifier_label = @"CustomLabelCell";
     
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier_label forIndexPath:indexPath];
+    
+    QBQiuShiItem *item = [items objectAtIndex: indexPath.row];
+    
+    //UIImageView *headerImage = (UIImageView*) [cell viewWithTag: HEADERIMAGE_TAG];
+    //UIImage *defaultImage = [UIImage imageWithContentsOfFile: @"default"];
+    //[headerImage sd_setImageWithURL:[[NSURL alloc] init] placeholderImage: defaultImage];
+    
+    UILabel *nameLabel = (UILabel*) [cell viewWithTag: NAMELABEL_TAG];
+    nameLabel.text = item.user.loginName;
+    
+    UILabel *contentLabel = (UILabel*) [cell viewWithTag: CONTENTLABEL_TAG];
+    contentLabel.text = item.content;
+    
+    UILabel *goodLabel = (UILabel*) [cell viewWithTag: GOODLABEL_TAG];
+    goodLabel.text = [NSString stringWithFormat: @"%d", item.vote.up];
+    
+    UILabel *commitLabel = (UILabel*)[cell viewWithTag: COMMITLABEL_TAG];
+    commitLabel.text = [NSString stringWithFormat: @"%d", item.commentCount];
+    
     
     return cell;
 }
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 /*
 #pragma mark - Navigation

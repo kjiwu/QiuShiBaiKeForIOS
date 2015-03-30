@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+
+#define HEADERIMAGE_TAG 1
+#define NAMELABEL_TAG 2
+#define CONTENTLABEL_TAG 3
+#define GOODLABEL_TAG 4
+#define COMMITLABEL_TAG 5
+#define GOODBUTTON_TAG 6
+#define BADBUTTON_TAG 7
+#define COMMITBUTTON_TAG 8
+
 @interface QBQiuShiViewController : UITableViewController
 
 @end

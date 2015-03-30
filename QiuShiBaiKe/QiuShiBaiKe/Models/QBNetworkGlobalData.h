@@ -11,7 +11,7 @@
 
 //获取糗事列表的地址
 #define QiuShiBaiKe_GetCount 30
-#define QiuShiBaiKe_GetData @"http://m2.qiushibaike.com/article/list/latest?page=1&count="
+#define QiuShiBaiKe_GetData @"http://m2.qiushibaike.com/article/list/latest?page=%@&count=%@"
 
 
 #endif

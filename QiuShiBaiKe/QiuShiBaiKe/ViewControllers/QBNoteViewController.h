@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QBNoteViewController : UIViewController
+@interface QBNoteViewController : UITableViewController
 
 @end
