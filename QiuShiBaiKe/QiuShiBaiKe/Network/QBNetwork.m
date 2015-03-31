@@ -33,7 +33,7 @@
     NSString* urlStr = [NSString stringWithFormat:QiuShiBaiKe_GetData, [NSNumber numberWithInt: 1], [NSNumber numberWithInt:QiuShiBaiKe_GetCount]];
     NSURL* url = [NSURL URLWithString: urlStr];
     
-    NSURLRequest* request = [[NSURLRequest alloc] initWithURL: url cachePolicy: NSURLRequestReloadIgnoringLocalCacheData timeoutInterval: 5];
+    NSURLRequest* request = [[NSURLRequest alloc] initWithURL: url cachePolicy: NSURLRequestReloadIgnoringLocalCacheData timeoutInterval: -1];
     
     __autoreleasing NSError* error;
     __autoreleasing NSURLResponse* response;
@@ -53,7 +53,16 @@
         return nil;
     }
     
-    return [items objectForKey: @"items"];
+    NSArray *qiushi =[items objectForKey: @"items"];
+    
+    NSMutableArray *qiushiItems = [[NSMutableArray alloc] init];
+    for(int i = 0; i < qiushi.count; i++){
+        NSDictionary *item = [qiushi objectAtIndex: i];
+        QBQiuShiItem *qiushiItem = [[QBQiuShiItem alloc] initWithDictionary: item];
+        [qiushiItems addObject: qiushiItem];
+    }
+    
+    return [qiushiItems copy];
 }
 
 @end

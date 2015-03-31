@@ -17,6 +17,7 @@
 #define GOODBUTTON_TAG 6
 #define BADBUTTON_TAG 7
 #define COMMITBUTTON_TAG 8
+#define IMAGECONTENT_TAG 9
 
 @interface QBQiuShiViewController : UITableViewController
 

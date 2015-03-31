@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "QBNetworkGlobalData.h"
+#import "QBDownloadQiuShiDelegate.h"
+#import "QBQiuShiItem.h"
+#import "QBUserInfo.h"
+#import "QBVoteInfo.h"
 
-
-@interface QBNetwork : NSObject
+@interface QBNetwork : NSObject<QBDownloadQiuShiDelegate>
 
 +(QBNetwork*) sharedNetwork;
 

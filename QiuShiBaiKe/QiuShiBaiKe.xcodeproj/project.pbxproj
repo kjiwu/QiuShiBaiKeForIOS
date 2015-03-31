@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0379B41ACAEA8F00E43BBB /* defaultContent.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A0379B31ACAEA8F00E43BBB /* defaultContent.jpg */; };
 		3A1466261AAF1290008E6F16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1466251AAF1290008E6F16 /* main.m */; };
 		3A1466291AAF1290008E6F16 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1466281AAF1290008E6F16 /* AppDelegate.m */; };
 		3A1466311AAF1290008E6F16 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1466301AAF1290008E6F16 /* Images.xcassets */; };
@@ -78,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A0379B31ACAEA8F00E43BBB /* defaultContent.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultContent.jpg; sourceTree = "<group>"; };
 		3A1466201AAF1290008E6F16 /* QiuShiBaiKe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QiuShiBaiKe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1466241AAF1290008E6F16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1466251AAF1290008E6F16 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		3A1466391AAF1290008E6F16 /* QiuShiBaiKeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QiuShiBaiKeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A14663E1AAF1290008E6F16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A14663F1AAF1290008E6F16 /* QiuShiBaiKeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QiuShiBaiKeTests.m; sourceTree = "<group>"; };
+		3A8851B11ACAD00000CD672A /* QBDownloadQiuShiDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QBDownloadQiuShiDelegate.h; sourceTree = "<group>"; };
 		3AB0E7251AAF1B9500F14047 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3AB0E7271AAF1B9600F14047 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		3AB0E7281AAF1BC000F14047 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.xib"; sourceTree = "<group>"; };
@@ -230,6 +233,7 @@
 		3A1466221AAF1290008E6F16 /* QiuShiBaiKe */ = {
 			isa = PBXGroup;
 			children = (
+				3A8851B01ACACF7E00CD672A /* Protocols */,
 				3A2E004F1AC99166006B4CDD /* ThirdParts */,
 				3A1E0ACF1AB08E2700DDF297 /* CustomControls */,
 				3AB0E7311AAF1DF500F14047 /* Models */,
@@ -316,6 +320,7 @@
 		3A2E00451AC98A7C006B4CDD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3A0379B31ACAEA8F00E43BBB /* defaultContent.jpg */,
 				3AB62C161AC9938600CFD7EC /* dot.png */,
 				3AB62C171AC9938600CFD7EC /* find.png */,
 				3AB62C181AC9938600CFD7EC /* good.png */,
@@ -375,6 +380,14 @@
 				3AB62C051AC9936C00CFD7EC /* UIView+WebCacheOperation.m */,
 			);
 			name = SDWebImage;
+			sourceTree = "<group>";
+		};
+		3A8851B01ACACF7E00CD672A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3A8851B11ACAD00000CD672A /* QBDownloadQiuShiDelegate.h */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		3AB0E7301AAF1DB200F14047 /* Network */ = {
@@ -553,6 +566,7 @@
 				3ABC9AB51ABAED6E0065AB39 /* Main.storyboard in Resources */,
 				3A1466341AAF1290008E6F16 /* LaunchScreen.xib in Resources */,
 				3A1466311AAF1290008E6F16 /* Images.xcassets in Resources */,
+				3A0379B41ACAEA8F00E43BBB /* defaultContent.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

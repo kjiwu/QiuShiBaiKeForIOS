@@ -12,6 +12,7 @@
 //获取糗事列表的地址
 #define QiuShiBaiKe_GetCount 30
 #define QiuShiBaiKe_GetData @"http://m2.qiushibaike.com/article/list/latest?page=%@&count=%@"
+#define QiuShiBaiKe_GetImage @"http://pic.qiushibaike.com/system/pictures/%@/%@/medium/%@"
 
 
 #endif
