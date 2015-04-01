@@ -13,6 +13,7 @@
 		3A1466311AAF1290008E6F16 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1466301AAF1290008E6F16 /* Images.xcassets */; };
 		3A1466341AAF1290008E6F16 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1466321AAF1290008E6F16 /* LaunchScreen.xib */; };
 		3A1466401AAF1290008E6F16 /* QiuShiBaiKeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A14663F1AAF1290008E6F16 /* QiuShiBaiKeTests.m */; };
+		3A3A6C951ACC42BD00362511 /* QBImageSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3A6C941ACC42BD00362511 /* QBImageSize.m */; };
 		3AB0E7241AAF1B9500F14047 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AB0E7261AAF1B9500F14047 /* InfoPlist.strings */; };
 		3AB0E72C1AAF1C1A00F14047 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AB0E72E1AAF1C1A00F14047 /* Localizable.strings */; };
 		3AB0E7391AAF1FF100F14047 /* QBNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0E7381AAF1FF100F14047 /* QBNetwork.m */; };
@@ -90,6 +91,8 @@
 		3A1466391AAF1290008E6F16 /* QiuShiBaiKeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QiuShiBaiKeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A14663E1AAF1290008E6F16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A14663F1AAF1290008E6F16 /* QiuShiBaiKeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QiuShiBaiKeTests.m; sourceTree = "<group>"; };
+		3A3A6C931ACC42BD00362511 /* QBImageSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBImageSize.h; path = Models/QBImageSize.h; sourceTree = "<group>"; };
+		3A3A6C941ACC42BD00362511 /* QBImageSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBImageSize.m; path = Models/QBImageSize.m; sourceTree = "<group>"; };
 		3A8851B11ACAD00000CD672A /* QBDownloadQiuShiDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QBDownloadQiuShiDelegate.h; sourceTree = "<group>"; };
 		3AB0E7251AAF1B9500F14047 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3AB0E7271AAF1B9600F14047 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -409,6 +412,8 @@
 				3AB0E7411AAF2CCE00F14047 /* QBUserInfo.m */,
 				3AB0E7431AAF2D9500F14047 /* QBVoteInfo.h */,
 				3AB0E7441AAF2D9500F14047 /* QBVoteInfo.m */,
+				3A3A6C931ACC42BD00362511 /* QBImageSize.h */,
+				3A3A6C941ACC42BD00362511 /* QBImageSize.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -605,6 +610,7 @@
 				3AB62C111AC9936C00CFD7EC /* UIImage+MultiFormat.m in Sources */,
 				3AB62C121AC9936C00CFD7EC /* UIImage+WebP.m in Sources */,
 				3AB62C0C1AC9936C00CFD7EC /* SDWebImageDownloaderOperation.m in Sources */,
+				3A3A6C951ACC42BD00362511 /* QBImageSize.m in Sources */,
 				3AB62C151AC9936C00CFD7EC /* UIView+WebCacheOperation.m in Sources */,
 				3AB62C0B1AC9936C00CFD7EC /* SDWebImageDownloader.m in Sources */,
 				3AB62C591AC993F200CFD7EC /* AFSecurityPolicy.m in Sources */,

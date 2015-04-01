@@ -74,6 +74,15 @@ http://m2.qiushibaike.com/article/list/latest?page=1&count=50 获取最新糗事
 }
 
 http://pic.qiushibaike.com/system/pictures/(糗事ID前4位)/(糗事ID)/medium/(图片文件名) 获取糗事对应的图片
+例如：
+http://pic.qiushibaike.com/system/pictures/10367/103674228/medium/103674228.jpg
+大图
+
+http://pic.qiushibaike.com/system/avtnew/(UserID前4位)/(UserId)/thumb/(图片文件名) 获取好友的头像
+例如：
+http://pic.qiushibaike.com/system/avtnew/2228/22286019/thumb/20141228011246.jpg
+用户头像
+
 
 http://m2.qiushibaike.com/article/(糗事ID)/comments?page=1&count=50 获取对应文章的评论
 {

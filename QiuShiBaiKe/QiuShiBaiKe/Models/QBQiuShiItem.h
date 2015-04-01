@@ -10,6 +10,7 @@
 
 #import "QBUserInfo.h"
 #import "QBVoteInfo.h"
+#import "QBImageSize.h"
 
 @class QBUserInfo, QBVoteInfo;
 
@@ -19,15 +20,19 @@
 
 @property (strong, nonatomic) NSString* image;
 
-@property (assign) BOOL allowComment;
+@property (assign, nonatomic) BOOL haveImage;
 
-@property (assign) int commentCount;
+@property (assign, nonatomic) BOOL allowComment;
 
-@property (strong, nonatomic) QBUserInfo* user;
+@property (assign, nonatomic) int commentCount;
 
-@property (strong, nonatomic) QBVoteInfo* vote;
+@property (strong, nonatomic) QBUserInfo *user;
+
+@property (strong, nonatomic) QBVoteInfo *vote;
 
 @property (strong, nonatomic) NSString* content;
+
+@property (strong, nonatomic) QBImageSize *imageSize;
 
 -(instancetype) initWithDictionary: (NSDictionary*) data;
 

@@ -10,7 +10,7 @@
 
 @implementation QBQiuShiItem
 
-@synthesize allowComment, itemId, image, commentCount, user, vote, content;
+@synthesize allowComment, itemId, image, commentCount, user, vote, content, imageSize, haveImage;
 
 -(instancetype) initWithDictionary: (NSDictionary *)data {
     
@@ -21,7 +21,13 @@
     content      = [data objectForKey: @"content"];
     user         = [[QBUserInfo alloc] initWithDictionary: [data objectForKey: @"user"]];
     vote         = [[QBVoteInfo alloc] initWithDictionary: [data objectForKey: @"vote"]];
-    
+    haveImage    = ((nil == image) || ([[NSNull null] isEqual: image]) || (image.length == 0)) ? NO : YES;
+
+    NSDictionary *imageDic = [data objectForKey: @"image_size"];
+    if(imageDic && ![[NSNull null] isEqual: imageDic]) {
+    imageSize              = [[QBImageSize alloc] initWithDictionary:imageDic];
+    }
+
     return self;
 }
 

@@ -54,6 +54,7 @@
     }
     
     NSArray *qiushi =[items objectForKey: @"items"];
+    NSLog(@"%@", qiushi);
     
     NSMutableArray *qiushiItems = [[NSMutableArray alloc] init];
     for(int i = 0; i < qiushi.count; i++){
