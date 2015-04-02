@@ -11,6 +11,6 @@
 @protocol QBDownloadQiuShiDelegate
 
 @optional
-- (void) downloadCompleted: (NSDictionary*) items;
+- (void) downloadCompleted: (NSArray*) items;
 
 @end

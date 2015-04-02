@@ -14,6 +14,9 @@
 
 @implementation QBNetwork
 
+@synthesize delegate;
+@synthesize isLoading;
+
 
 +(QBNetwork*) sharedNetwork {
     
@@ -28,23 +31,60 @@
     
 }
 
--(NSArray*) getQiuShiList {
-    
-    NSString* urlStr = [NSString stringWithFormat:QiuShiBaiKe_GetData, [NSNumber numberWithInt: 1], [NSNumber numberWithInt:QiuShiBaiKe_GetCount]];
-    NSURL* url = [NSURL URLWithString: urlStr];
-    
-    NSURLRequest* request = [[NSURLRequest alloc] initWithURL: url cachePolicy: NSURLRequestReloadIgnoringLocalCacheData timeoutInterval: -1];
+-(NSArray*) getQiuShiListWithPage:(int) page {
+    NSURL* url = [self getURLWithPage: page];
+    NSURLRequest* request = [[NSURLRequest alloc] initWithURL: url cachePolicy: NSURLRequestReloadIgnoringLocalCacheData timeoutInterval: 5];
     
     __autoreleasing NSError* error;
     __autoreleasing NSURLResponse* response;
     
+    isLoading = YES;
+    
     NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse: &response error: &error];
+    
+    isLoading = NO;
     
     if(error) {
         NSLog(@"%@", error);
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"" message: error.description delegate: nil cancelButtonTitle: @"Cancel" otherButtonTitles:@"OK", nil];
+        [alert show];
         return nil;
     }
     
+    return [self qiushiWithData: data];
+}
+
+- (void) getQiuShiListWithPageAsync:(int) page {
+    NSURL* url = [self getURLWithPage: page];
+    NSURLRequest* request = [[NSURLRequest alloc] initWithURL: url cachePolicy: NSURLRequestReloadIgnoringLocalCacheData timeoutInterval: 5];
+    NSOperationQueue *queue=[[NSOperationQueue alloc] init];
+    
+    isLoading = YES;
+    
+    [NSURLConnection sendAsynchronousRequest: request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        isLoading = NO;
+        if(connectionError) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @""
+                                                            message: connectionError.description
+                                                           delegate: nil
+                                                  cancelButtonTitle: @"Cancel"
+                                                  otherButtonTitles:@"OK", nil];
+            [alert show];
+        }
+        else {
+            if(delegate) {
+                [delegate downloadCompleted: [self qiushiWithData: data]];
+            }
+        }
+    }];
+}
+
+- (NSURL*) getURLWithPage:(int) page {
+    NSString* urlStr = [NSString stringWithFormat:QiuShiBaiKe_GetData, [NSNumber numberWithInt: page], [NSNumber numberWithInt:QiuShiBaiKe_GetCount]];
+    return [NSURL URLWithString: urlStr];
+}
+
+- (NSArray*) qiushiWithData:(NSData*) data {
     __autoreleasing NSError* jsonError;
     NSDictionary* items = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error: &jsonError];
     

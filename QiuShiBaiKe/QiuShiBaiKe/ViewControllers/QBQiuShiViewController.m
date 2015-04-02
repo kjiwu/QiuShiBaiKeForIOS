@@ -16,17 +16,25 @@
 @end
 
 @implementation QBQiuShiViewController{
-    
-    NSArray *items;
+    NSMutableArray *qiushiItems;
     QBNetwork *network;
+    int page;
+    
+    BOOL navToCommit;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     network = [[QBNetwork alloc] init];
-    items = [network getQiuShiList];
+    network.delegate = self;
+    
+    qiushiItems = [[NSMutableArray alloc] init];
     self.tableView.allowsSelection = NO;
+    
+    page = 1;
+    [network getQiuShiListWithPageAsync: page];
+    navToCommit = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,7 +51,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return items.count;
+    return qiushiItems.count;
 }
 
 
@@ -51,7 +59,7 @@
     static NSString *identifier_label = @"CustomLabelCell";
     static NSString *identifier_image = @"CustomLabelWithImageCell";
     UITableViewCell* cell = nil;
-    QBQiuShiItem *item = [items objectAtIndex: indexPath.row];
+    QBQiuShiItem *item = [qiushiItems objectAtIndex: indexPath.row];
     BOOL isImageCell = (nil == item.image || [[NSNull null] isEqual: item.image] || item.image.length == 0) ? NO : YES;
     
     if(!isImageCell)
@@ -95,12 +103,10 @@
         [contentImage sd_setImageWithURL:urlImage placeholderImage: cImage];
         
         CGRect rect = contentImage.frame;
-        NSLog(@"before:(%0.2f, %0.2f)", rect.size.width, rect.size.height);
         contentImage.frame = CGRectMake(rect.origin.x
                                         , rect.origin.y
                                         , item.imageSize.smallSize.width
                                         , item.imageSize.smallSize.height);
-        NSLog(@"after:(%0.2f, %0.2f)", contentImage.frame.size.width, contentImage.frame.size.height);
     }
     
     
@@ -115,7 +121,7 @@
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    QBQiuShiItem *item = [items objectAtIndex: indexPath.row];
+    QBQiuShiItem *item = [qiushiItems objectAtIndex: indexPath.row];
     if(item.haveImage) {
         return 180 + item.imageSize.smallSize.height;
     }
@@ -129,8 +135,8 @@
     NSRange range = NSMakeRange(0, attrStr.length);
     NSDictionary *dic = [attrStr attributesAtIndex:0 effectiveRange: &range];
     
-    return [value boundingRectWithSize: CGSizeMake(320, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-                            attributes: dic context:nil].size.height;
+    return [value boundingRectWithSize: CGSizeMake(320, 0) options:NSStringDrawingUsesLineFragmentOrigin
+                            attributes: dic context:nil].size.height + 32;
 }
 
 
@@ -150,14 +156,28 @@
     return [NSURL URLWithString: urlStr];
 }
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    navToCommit =[segue.identifier isEqualToString: @"CommitSegue"] || [segue.identifier isEqualToString: @"CommitSegueWithImage"];
 }
-*/
+
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView {
+    if(navToCommit) return;
+    
+    float distance = scrollView.contentSize.height - (scrollView.contentOffset.y + scrollView.frame.size.height);
+    if(!network.isLoading && (distance <= 0)) {
+        page++;
+        [network getQiuShiListWithPageAsync: page];
+    }
+}
+
+#pragma mark --QBDownloadQiuShiDelegate--
+
+- (void) downloadCompleted:(NSArray *)items {
+    [qiushiItems addObjectsFromArray: items];
+    [self.tableView reloadData];
+}
 
 @end

@@ -18,6 +18,13 @@
 
 +(QBNetwork*) sharedNetwork;
 
--(NSArray*) getQiuShiList;
+@property (nonatomic, weak) id<QBDownloadQiuShiDelegate> delegate;
+
+@property (nonatomic, readonly) BOOL isLoading;
+
+
+-(NSArray*) getQiuShiListWithPage:(int) page;
+
+- (void) getQiuShiListWithPageAsync:(int) page;
 
 @end

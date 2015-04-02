@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "QBDownloadQiuShiDelegate.h"
+
 
 #define HEADERIMAGE_TAG 1
 #define NAMELABEL_TAG 2
@@ -19,6 +21,8 @@
 #define COMMITBUTTON_TAG 8
 #define IMAGECONTENT_TAG 9
 
-@interface QBQiuShiViewController : UITableViewController
+#define LoadNewQiuShiDistance 200
+
+@interface QBQiuShiViewController : UITableViewController<QBDownloadQiuShiDelegate>
 
 @end
