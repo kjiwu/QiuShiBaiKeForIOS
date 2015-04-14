@@ -44,6 +44,7 @@
     username = [[UILabel alloc] init];
     username.font = [UIFont systemFontOfSize: kUsernameFontSize];
     username.numberOfLines = 1;
+    username.textColor = [UIColor purpleColor];
     [self.contentView addSubview:username];
     
     content = [[UILabel alloc] init];
