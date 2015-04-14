@@ -64,17 +64,14 @@
     [NSURLConnection sendAsynchronousRequest: request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         isLoading = NO;
         if(connectionError) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @""
-                                                            message: connectionError.description
-                                                           delegate: nil
-                                                  cancelButtonTitle: @"Cancel"
-                                                  otherButtonTitles:@"OK", nil];
-            [alert show];
+            [self getQiuShiListWithPageAsync:page];
         }
         else {
-            if(delegate) {
-                [delegate downloadCompleted: [self qiushiWithData: data]];
-            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if(delegate) {
+                    [delegate downloadCompleted: [self qiushiWithData: data]];
+                }
+            });
         }
     }];
 }

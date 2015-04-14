@@ -20,7 +20,7 @@
     commentCount = (int)[[data objectForKey: @"comments_count"] integerValue];
     content      = [data objectForKey: @"content"];
     user         = [[QBUserInfo alloc] initWithDictionary: [data objectForKey: @"user"]];
-    vote         = [[QBVoteInfo alloc] initWithDictionary: [data objectForKey: @"vote"]];
+    vote         = [[QBVoteInfo alloc] initWithDictionary: [data objectForKey: @"votes"]];
     haveImage    = ((nil == image) || ([[NSNull null] isEqual: image]) || (image.length == 0)) ? NO : YES;
 
     NSDictionary *imageDic = [data objectForKey: @"image_size"];

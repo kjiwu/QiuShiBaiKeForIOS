@@ -7,22 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
 #import "QBDownloadQiuShiDelegate.h"
+#import "QBItemTouchDelegate.h"
 
 
-#define HEADERIMAGE_TAG 1
-#define NAMELABEL_TAG 2
-#define CONTENTLABEL_TAG 3
-#define GOODLABEL_TAG 4
-#define COMMITLABEL_TAG 5
-#define GOODBUTTON_TAG 6
-#define BADBUTTON_TAG 7
-#define COMMITBUTTON_TAG 8
-#define IMAGECONTENT_TAG 9
-
-#define LoadNewQiuShiDistance 200
-
-@interface QBQiuShiViewController : UITableViewController<QBDownloadQiuShiDelegate>
+@interface QBQiuShiViewController : UITableViewController<QBDownloadQiuShiDelegate, QBItemTouchDelegate>
 
 @end

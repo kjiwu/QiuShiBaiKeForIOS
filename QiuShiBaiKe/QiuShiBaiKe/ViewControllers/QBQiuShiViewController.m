@@ -7,9 +7,18 @@
 //
 
 #import "QBQiuShiViewController.h"
-#import "UIImageView+WebCache.h"
 #import "QBNetwork.h"
 #import "QBQiuShiItem.h"
+#import "QBTableViewCell.h"
+#import "QBLabelTableViewCell.h"
+#import "QBImageTableViewCell.h"
+#import "QBQiuShiCommentController.h"
+
+static NSString* Identifier_Label = @"CustomLabelCell";
+static NSString* Identifier_Image = @"CustomLabelWithImageCell";
+
+#define LoadNewQiuShiDistance 200
+
 
 @interface QBQiuShiViewController ()
 
@@ -19,8 +28,10 @@
     NSMutableArray *qiushiItems;
     QBNetwork *network;
     int page;
-    
+    NSInteger selectedItemIndex;
     BOOL navToCommit;
+    
+    NSMutableArray *qiushiItemCells;
 }
 
 - (void)viewDidLoad {
@@ -31,6 +42,8 @@
     
     qiushiItems = [[NSMutableArray alloc] init];
     self.tableView.allowsSelection = NO;
+    
+    qiushiItemCells = [[NSMutableArray alloc] init];
     
     page = 1;
     [network getQiuShiListWithPageAsync: page];
@@ -56,104 +69,35 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier_label = @"CustomLabelCell";
-    static NSString *identifier_image = @"CustomLabelWithImageCell";
-    UITableViewCell* cell = nil;
+    QBTableViewCell* cell = nil;
     QBQiuShiItem *item = [qiushiItems objectAtIndex: indexPath.row];
-    BOOL isImageCell = (nil == item.image || [[NSNull null] isEqual: item.image] || item.image.length == 0) ? NO : YES;
     
-    if(!isImageCell)
-        cell = [tableView dequeueReusableCellWithIdentifier:identifier_label];
-    else
-        cell = [tableView dequeueReusableCellWithIdentifier:identifier_image];
     
-    UIImageView *headerImage = (UIImageView*) [cell viewWithTag: HEADERIMAGE_TAG];
-    headerImage.layer.cornerRadius = headerImage.frame.size.width / 2;
-    headerImage.layer.masksToBounds = YES;
-    
-    if(item.user){
-        UIImage *defaultImage = [UIImage imageWithContentsOfFile: @"default"];
-        NSURL *headerURL = [self getHeaderImage:item.user.userId withImage:item.user.header];
-        if(headerURL){
-            [headerImage sd_setImageWithURL:headerURL placeholderImage: defaultImage];
+    if(!item.haveImage) {
+        cell = [tableView dequeueReusableCellWithIdentifier:Identifier_Label];
+        if(!cell) {
+            cell = [[QBLabelTableViewCell alloc] init];
+        }
+    }
+    else {
+        cell = [tableView dequeueReusableCellWithIdentifier:Identifier_Image];
+        if(!cell) {
+            cell = [[QBImageTableViewCell alloc] init];
         }
     }
     
-    UILabel *nameLabel = (UILabel*) [cell viewWithTag: NAMELABEL_TAG];
-    if(nil != item.user)
-        nameLabel.text = item.user.loginName;
-    else
-        nameLabel.text = NSLocalizedString(@"Default_Username", @"");
-    
-    UILabel *contentLabel = (UILabel*) [cell viewWithTag: CONTENTLABEL_TAG];
-    contentLabel.text = item.content;
-    
-    UILabel *goodLabel = (UILabel*) [cell viewWithTag: GOODLABEL_TAG];
-    if(item.vote)
-        goodLabel.text = [NSString stringWithFormat: @"%d", item.vote.up];
-    
-    UILabel *commitLabel = (UILabel*)[cell viewWithTag: COMMITLABEL_TAG];
-    commitLabel.text = [NSString stringWithFormat: @"%d", item.commentCount];
-    
-    if(isImageCell) {
-        UIImageView *contentImage = (UIImageView*)[cell viewWithTag: IMAGECONTENT_TAG];
-        UIImage *cImage = [UIImage imageNamed: @"defaultContent.jpg"];
-        
-        NSURL *urlImage = [self getImageURL: item.itemId withImageName: item.image];
-        [contentImage sd_setImageWithURL:urlImage placeholderImage: cImage];
-        
-        CGRect rect = contentImage.frame;
-        contentImage.frame = CGRectMake(rect.origin.x
-                                        , rect.origin.y
-                                        , item.imageSize.smallSize.width
-                                        , item.imageSize.smallSize.height);
-    }
-    
-    
-    [cell setNeedsUpdateConstraints];
-    [cell updateConstraintsIfNeeded];
+    cell.item = [qiushiItems objectAtIndex:indexPath.row];
+    cell.delegate = self;
+    [qiushiItemCells addObject:cell];
     
     return cell;
 }
 
-- (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
-}
-
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    QBQiuShiItem *item = [qiushiItems objectAtIndex: indexPath.row];
-    if(item.haveImage) {
-        return 180 + item.imageSize.smallSize.height;
-    }
-    else {
-        return 150 + [self getStringHeight: item.content];
-    }
-}
-
-- (CGFloat) getStringHeight: (NSString*) value {
-    NSAttributedString *attrStr = [[NSAttributedString alloc] initWithString: value];
-    NSRange range = NSMakeRange(0, attrStr.length);
-    NSDictionary *dic = [attrStr attributesAtIndex:0 effectiveRange: &range];
+    if(qiushiItemCells.count == 0)
+        return 0;
     
-    return [value boundingRectWithSize: CGSizeMake(320, 0) options:NSStringDrawingUsesLineFragmentOrigin
-                            attributes: dic context:nil].size.height + 32;
-}
-
-
-- (NSURL*) getImageURL: (NSString*)qiubaiID withImageName: (NSString*) imageName {
-    NSString *id04 = [qiubaiID substringWithRange: NSMakeRange(0, 5)];
-    NSString *urlStr = [NSString stringWithFormat:QiuShiBaiKe_GetSmallImage, id04, qiubaiID, imageName];
-    return [NSURL URLWithString: urlStr];
-}
-
-- (NSURL*) getHeaderImage:(NSString*) userId withImage:(NSString*) imageName {
-    if(nil == userId || userId.length == 0)
-        return nil;
-    
-    
-    NSString *id04 = [userId substringWithRange: NSMakeRange(0, 4)];
-    NSString *urlStr = [NSString stringWithFormat:QiuShiBaiKe_GetUserHeader, id04, userId, imageName];
-    return [NSURL URLWithString: urlStr];
+    return ((QBTableViewCell*)[qiushiItemCells objectAtIndex:indexPath.row]).height;
 }
 
 #pragma mark - Navigation
@@ -161,6 +105,10 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     navToCommit =[segue.identifier isEqualToString: @"CommitSegue"] || [segue.identifier isEqualToString: @"CommitSegueWithImage"];
+    
+    if(navToCommit) {
+        
+    }
 }
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -178,6 +126,14 @@
 - (void) downloadCompleted:(NSArray *)items {
     [qiushiItems addObjectsFromArray: items];
     [self.tableView reloadData];
+}
+
+#pragma mark --QBItemTouchDelegate--
+
+- (void) commentTouched:(id)sender withQiuShiItem:(QBQiuShiItem *)item {
+    QBQiuShiCommentController *controller = [[QBQiuShiCommentController alloc] init];
+    controller.navigationItem.title = @"评论";
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end

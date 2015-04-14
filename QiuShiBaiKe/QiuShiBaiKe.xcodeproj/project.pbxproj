@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A0379B41ACAEA8F00E43BBB /* defaultContent.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A0379B31ACAEA8F00E43BBB /* defaultContent.jpg */; };
+		3A0C669B1AD26A920034D3E4 /* QBQiuShiCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C669A1AD26A920034D3E4 /* QBQiuShiCommentController.m */; };
 		3A1466261AAF1290008E6F16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1466251AAF1290008E6F16 /* main.m */; };
 		3A1466291AAF1290008E6F16 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1466281AAF1290008E6F16 /* AppDelegate.m */; };
 		3A1466311AAF1290008E6F16 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1466301AAF1290008E6F16 /* Images.xcassets */; };
@@ -66,6 +67,10 @@
 		3ABC9ABB1ABAFCCF0065AB39 /* QBFinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC9ABA1ABAFCCF0065AB39 /* QBFinderViewController.m */; };
 		3ABC9ABE1ABAFCF30065AB39 /* QBNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC9ABD1ABAFCF30065AB39 /* QBNoteViewController.m */; };
 		3ABC9AC11ABAFD0B0065AB39 /* QBMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC9AC01ABAFD0B0065AB39 /* QBMeViewController.m */; };
+		3AF86B421ADBF28900F59A8D /* QBLabelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF86B411ADBF28900F59A8D /* QBLabelTableViewCell.m */; };
+		3AF86B451ADBF2A200F59A8D /* QBImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF86B441ADBF2A200F59A8D /* QBImageTableViewCell.m */; };
+		3AF86B481ADBF38C00F59A8D /* QBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF86B471ADBF38C00F59A8D /* QBTableViewCell.m */; };
+		3AF86B4C1ADBFADD00F59A8D /* QBQiuShiToolHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF86B4B1ADBFADD00F59A8D /* QBQiuShiToolHelper.m */; };
 		3AFEA6481AB1E54200960E53 /* 糗事百科数据接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AFEA6471AB1E54200960E53 /* 糗事百科数据接口.txt */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +86,8 @@
 
 /* Begin PBXFileReference section */
 		3A0379B31ACAEA8F00E43BBB /* defaultContent.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultContent.jpg; sourceTree = "<group>"; };
+		3A0C66991AD26A920034D3E4 /* QBQiuShiCommentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBQiuShiCommentController.h; path = ViewControllers/QBQiuShiCommentController.h; sourceTree = "<group>"; };
+		3A0C669A1AD26A920034D3E4 /* QBQiuShiCommentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBQiuShiCommentController.m; path = ViewControllers/QBQiuShiCommentController.m; sourceTree = "<group>"; };
 		3A1466201AAF1290008E6F16 /* QiuShiBaiKe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QiuShiBaiKe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1466241AAF1290008E6F16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A1466251AAF1290008E6F16 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -91,9 +98,10 @@
 		3A1466391AAF1290008E6F16 /* QiuShiBaiKeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QiuShiBaiKeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A14663E1AAF1290008E6F16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A14663F1AAF1290008E6F16 /* QiuShiBaiKeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QiuShiBaiKeTests.m; sourceTree = "<group>"; };
+		3A2BD1951ADD53C900284247 /* QBItemTouchDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QBItemTouchDelegate.h; path = Protocols/QBItemTouchDelegate.h; sourceTree = "<group>"; };
+		3A2BD1961ADD540C00284247 /* QBDownloadQiuShiDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBDownloadQiuShiDelegate.h; path = Protocols/QBDownloadQiuShiDelegate.h; sourceTree = "<group>"; };
 		3A3A6C931ACC42BD00362511 /* QBImageSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBImageSize.h; path = Models/QBImageSize.h; sourceTree = "<group>"; };
 		3A3A6C941ACC42BD00362511 /* QBImageSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBImageSize.m; path = Models/QBImageSize.m; sourceTree = "<group>"; };
-		3A8851B11ACAD00000CD672A /* QBDownloadQiuShiDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QBDownloadQiuShiDelegate.h; sourceTree = "<group>"; };
 		3AB0E7251AAF1B9500F14047 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3AB0E7271AAF1B9600F14047 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		3AB0E7281AAF1BC000F14047 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.xib"; sourceTree = "<group>"; };
@@ -194,6 +202,14 @@
 		3ABC9ABD1ABAFCF30065AB39 /* QBNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBNoteViewController.m; path = ViewControllers/QBNoteViewController.m; sourceTree = "<group>"; };
 		3ABC9ABF1ABAFD0B0065AB39 /* QBMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBMeViewController.h; path = ViewControllers/QBMeViewController.h; sourceTree = "<group>"; };
 		3ABC9AC01ABAFD0B0065AB39 /* QBMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBMeViewController.m; path = ViewControllers/QBMeViewController.m; sourceTree = "<group>"; };
+		3AF86B401ADBF28900F59A8D /* QBLabelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBLabelTableViewCell.h; path = CustomControls/TableViewCells/QBLabelTableViewCell.h; sourceTree = "<group>"; };
+		3AF86B411ADBF28900F59A8D /* QBLabelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBLabelTableViewCell.m; path = CustomControls/TableViewCells/QBLabelTableViewCell.m; sourceTree = "<group>"; };
+		3AF86B431ADBF2A200F59A8D /* QBImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBImageTableViewCell.h; path = CustomControls/TableViewCells/QBImageTableViewCell.h; sourceTree = "<group>"; };
+		3AF86B441ADBF2A200F59A8D /* QBImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBImageTableViewCell.m; path = CustomControls/TableViewCells/QBImageTableViewCell.m; sourceTree = "<group>"; };
+		3AF86B461ADBF38C00F59A8D /* QBTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBTableViewCell.h; path = CustomControls/TableViewCells/QBTableViewCell.h; sourceTree = "<group>"; };
+		3AF86B471ADBF38C00F59A8D /* QBTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBTableViewCell.m; path = CustomControls/TableViewCells/QBTableViewCell.m; sourceTree = "<group>"; };
+		3AF86B4A1ADBFADD00F59A8D /* QBQiuShiToolHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBQiuShiToolHelper.h; path = Utilities/QBQiuShiToolHelper.h; sourceTree = "<group>"; };
+		3AF86B4B1ADBFADD00F59A8D /* QBQiuShiToolHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBQiuShiToolHelper.m; path = Utilities/QBQiuShiToolHelper.m; sourceTree = "<group>"; };
 		3AFEA6471AB1E54200960E53 /* 糗事百科数据接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "糗事百科数据接口.txt"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -236,6 +252,7 @@
 		3A1466221AAF1290008E6F16 /* QiuShiBaiKe */ = {
 			isa = PBXGroup;
 			children = (
+				3AF86B491ADBFA7700F59A8D /* Utilities */,
 				3A8851B01ACACF7E00CD672A /* Protocols */,
 				3A2E004F1AC99166006B4CDD /* ThirdParts */,
 				3A1E0ACF1AB08E2700DDF297 /* CustomControls */,
@@ -301,6 +318,8 @@
 				3ABC9ABD1ABAFCF30065AB39 /* QBNoteViewController.m */,
 				3ABC9ABF1ABAFD0B0065AB39 /* QBMeViewController.h */,
 				3ABC9AC01ABAFD0B0065AB39 /* QBMeViewController.m */,
+				3A0C66991AD26A920034D3E4 /* QBQiuShiCommentController.h */,
+				3A0C669A1AD26A920034D3E4 /* QBQiuShiCommentController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -316,6 +335,12 @@
 		3A1E0AD01AB08E3100DDF297 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				3AF86B401ADBF28900F59A8D /* QBLabelTableViewCell.h */,
+				3AF86B411ADBF28900F59A8D /* QBLabelTableViewCell.m */,
+				3AF86B431ADBF2A200F59A8D /* QBImageTableViewCell.h */,
+				3AF86B441ADBF2A200F59A8D /* QBImageTableViewCell.m */,
+				3AF86B461ADBF38C00F59A8D /* QBTableViewCell.h */,
+				3AF86B471ADBF38C00F59A8D /* QBTableViewCell.m */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -388,7 +413,8 @@
 		3A8851B01ACACF7E00CD672A /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				3A8851B11ACAD00000CD672A /* QBDownloadQiuShiDelegate.h */,
+				3A2BD1961ADD540C00284247 /* QBDownloadQiuShiDelegate.h */,
+				3A2BD1951ADD53C900284247 /* QBItemTouchDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -475,6 +501,15 @@
 				3AB62C541AC993F200CFD7EC /* AFURLSessionManager.m */,
 			);
 			name = AFNetworking;
+			sourceTree = "<group>";
+		};
+		3AF86B491ADBFA7700F59A8D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3AF86B4A1ADBFADD00F59A8D /* QBQiuShiToolHelper.h */,
+				3AF86B4B1ADBFADD00F59A8D /* QBQiuShiToolHelper.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -593,6 +628,7 @@
 				3AB62C3D1AC993CD00CFD7EC /* UIImageView+AFNetworking.m in Sources */,
 				3ABC9ABE1ABAFCF30065AB39 /* QBNoteViewController.m in Sources */,
 				3AB62C5B1AC993F200CFD7EC /* AFURLRequestSerialization.m in Sources */,
+				3A0C669B1AD26A920034D3E4 /* QBQiuShiCommentController.m in Sources */,
 				3AB62C061AC9936C00CFD7EC /* MKAnnotationView+WebCache.m in Sources */,
 				3AB0E73F1AAF2C6500F14047 /* QBQiuShiItem.m in Sources */,
 				3AB62C0E1AC9936C00CFD7EC /* SDWebImagePrefetcher.m in Sources */,
@@ -606,12 +642,15 @@
 				3AB62C091AC9936C00CFD7EC /* SDWebImageCompat.m in Sources */,
 				3AB62C3B1AC993CD00CFD7EC /* UIAlertView+AFNetworking.m in Sources */,
 				3ABC9AC11ABAFD0B0065AB39 /* QBMeViewController.m in Sources */,
+				3AF86B481ADBF38C00F59A8D /* QBTableViewCell.m in Sources */,
 				3AB62C0A1AC9936C00CFD7EC /* SDWebImageDecoder.m in Sources */,
 				3AB62C111AC9936C00CFD7EC /* UIImage+MultiFormat.m in Sources */,
+				3AF86B451ADBF2A200F59A8D /* QBImageTableViewCell.m in Sources */,
 				3AB62C121AC9936C00CFD7EC /* UIImage+WebP.m in Sources */,
 				3AB62C0C1AC9936C00CFD7EC /* SDWebImageDownloaderOperation.m in Sources */,
 				3A3A6C951ACC42BD00362511 /* QBImageSize.m in Sources */,
 				3AB62C151AC9936C00CFD7EC /* UIView+WebCacheOperation.m in Sources */,
+				3AF86B4C1ADBFADD00F59A8D /* QBQiuShiToolHelper.m in Sources */,
 				3AB62C0B1AC9936C00CFD7EC /* SDWebImageDownloader.m in Sources */,
 				3AB62C591AC993F200CFD7EC /* AFSecurityPolicy.m in Sources */,
 				3AB62C5D1AC993F200CFD7EC /* AFURLSessionManager.m in Sources */,
@@ -621,6 +660,7 @@
 				3AB62C581AC993F200CFD7EC /* AFNetworkReachabilityManager.m in Sources */,
 				3AB0E7421AAF2CCE00F14047 /* QBUserInfo.m in Sources */,
 				3A1466261AAF1290008E6F16 /* main.m in Sources */,
+				3AF86B421ADBF28900F59A8D /* QBLabelTableViewCell.m in Sources */,
 				3AB62C561AC993F200CFD7EC /* AFHTTPRequestOperationManager.m in Sources */,
 				3AB62C131AC9936C00CFD7EC /* UIImageView+HighlightedWebCache.m in Sources */,
 				3AB62C551AC993F200CFD7EC /* AFHTTPRequestOperation.m in Sources */,
