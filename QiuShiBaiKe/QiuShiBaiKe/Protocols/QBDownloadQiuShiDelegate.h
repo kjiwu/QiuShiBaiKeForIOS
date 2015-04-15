@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol QBDownloadQiuShiDelegate
+@protocol QBDownloadQiuShiDelegate<NSObject>
 
 @optional
-- (void) downloadCompleted: (NSArray*) items;
+- (void) downloadQiuShiCompleted: (NSArray*) items;
+- (void) downloadCommentCompleted:(NSArray *)items;
 
 @end

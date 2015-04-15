@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class QBQiuShiItem;
+
 @interface QBQiuShiCommentController : UITableViewController
+
+@property (strong, nonatomic) QBQiuShiItem *item;
 
 @end

@@ -7,6 +7,11 @@
 //
 
 #import "QBNetwork.h"
+#import "QBNetworkGlobalData.h"
+#import "QBQiuShiItem.h"
+#import "QBUserInfo.h"
+#import "QBVoteInfo.h"
+#import "QBQiuShiCommentItem.h"
 
 @interface QBNetwork()
 
@@ -68,8 +73,8 @@
         }
         else {
             dispatch_async(dispatch_get_main_queue(), ^{
-                if(delegate) {
-                    [delegate downloadCompleted: [self qiushiWithData: data]];
+                if(delegate && [delegate respondsToSelector:@selector(downloadQiuShiCompleted:)]) {
+                    [delegate downloadQiuShiCompleted: [self qiushiWithData: data]];
                 }
             });
         }
@@ -102,5 +107,33 @@
     
     return [qiushiItems copy];
 }
+
+- (void) qiushiCommentsWithId:(NSString *)id {
+    NSURL *url = [NSURL URLWithString: [NSString stringWithFormat:QiuShiBaiKe_GetComments, id]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSOperationQueue* queue = [[NSOperationQueue alloc] init];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if(!connectionError) {
+            if(delegate && [delegate respondsToSelector:@selector(downloadCommentCompleted:)]) {
+                __autoreleasing NSError* jsonError;
+                NSDictionary* dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error: &jsonError];
+                NSMutableArray *commentItems = [[NSMutableArray alloc] initWithCapacity:10];
+                NSArray *items = [dic objectForKey:@"items"];
+                
+                for(int i = 0; i < items.count; i++) {
+                    [commentItems addObject:[[QBQiuShiCommentItem alloc] initWithDictionary:items[i]]];
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [delegate downloadCommentCompleted: [commentItems copy]];
+                });
+            }
+        }
+        else {
+            [self qiushiCommentsWithId:id];
+        }
+    }];
+}
+
 
 @end

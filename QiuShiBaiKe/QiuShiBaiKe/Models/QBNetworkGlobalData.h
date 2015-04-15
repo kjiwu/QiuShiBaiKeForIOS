@@ -22,4 +22,8 @@
 //获取好友的头像
 #define QiuShiBaiKe_GetUserHeader @"http://pic.qiushibaike.com/system/avtnew/%@/%@/thumb/%@"
 
+
+//获取糗事评论地址
+#define QiuShiBaiKe_GetComments @"http://m2.qiushibaike.com/article/%@/comments?page=1&count=5000"
+
 #endif

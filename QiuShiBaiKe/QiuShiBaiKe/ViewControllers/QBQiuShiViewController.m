@@ -76,13 +76,13 @@ static NSString* Identifier_Image = @"CustomLabelWithImageCell";
     if(!item.haveImage) {
         cell = [tableView dequeueReusableCellWithIdentifier:Identifier_Label];
         if(!cell) {
-            cell = [[QBLabelTableViewCell alloc] init];
+            cell = [[QBLabelTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifier_Label];
         }
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:Identifier_Image];
         if(!cell) {
-            cell = [[QBImageTableViewCell alloc] init];
+            cell = [[QBImageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:Identifier_Image];
         }
     }
     
@@ -114,16 +114,16 @@ static NSString* Identifier_Image = @"CustomLabelWithImageCell";
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
     if(navToCommit) return;
     
-    float distance = scrollView.contentSize.height - (scrollView.contentOffset.y + scrollView.frame.size.height);
-    if(!network.isLoading && (distance <= 0)) {
-        page++;
-        [network getQiuShiListWithPageAsync: page];
-    }
+//    float distance = scrollView.contentSize.height - (scrollView.contentOffset.y + scrollView.frame.size.height);
+//    if(!network.isLoading && (distance <= 0)) {
+//        page++;
+//        [network getQiuShiListWithPageAsync: page];
+//    }
 }
 
 #pragma mark --QBDownloadQiuShiDelegate--
 
-- (void) downloadCompleted:(NSArray *)items {
+- (void) downloadQiuShiCompleted:(NSArray *)items {
     [qiushiItems addObjectsFromArray: items];
     [self.tableView reloadData];
 }
@@ -133,6 +133,7 @@ static NSString* Identifier_Image = @"CustomLabelWithImageCell";
 - (void) commentTouched:(id)sender withQiuShiItem:(QBQiuShiItem *)item {
     QBQiuShiCommentController *controller = [[QBQiuShiCommentController alloc] init];
     controller.navigationItem.title = @"评论";
+    controller.item = item;
     [self.navigationController pushViewController:controller animated:YES];
 }
 

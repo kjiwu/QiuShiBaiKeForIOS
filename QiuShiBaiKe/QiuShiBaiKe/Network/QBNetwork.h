@@ -6,13 +6,8 @@
 //  Copyright (c) 2015年 wulei. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-#import "QBNetworkGlobalData.h"
+#import <UIKit/UIKit.h>
 #import "QBDownloadQiuShiDelegate.h"
-#import "QBQiuShiItem.h"
-#import "QBUserInfo.h"
-#import "QBVoteInfo.h"
 
 @interface QBNetwork : NSObject<QBDownloadQiuShiDelegate>
 
@@ -26,5 +21,8 @@
 -(NSArray*) getQiuShiListWithPage:(int) page;
 
 - (void) getQiuShiListWithPageAsync:(int) page;
+
+
+-(void) qiushiCommentsWithId:(NSString*)id;
 
 @end

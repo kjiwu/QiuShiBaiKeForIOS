@@ -10,15 +10,15 @@
 
 @interface QBUserInfo : NSObject
 
-@property (strong, nonatomic) NSString* loginName;
+@property (copy, nonatomic) NSString* loginName;
 
-@property (strong, nonatomic) NSString* header;
+@property (copy, nonatomic) NSString* header;
 
-@property (strong, nonatomic) NSString* userId;
+@property (copy, nonatomic) NSString* userId;
 
-@property (strong, nonatomic) NSString* lastDevice;
+@property (copy, nonatomic) NSString* lastDevice;
 
-@property (strong, nonatomic) NSString* state;
+@property (copy, nonatomic) NSString* state;
 
 -(instancetype) initWithDictionary: (NSDictionary*) data;
 

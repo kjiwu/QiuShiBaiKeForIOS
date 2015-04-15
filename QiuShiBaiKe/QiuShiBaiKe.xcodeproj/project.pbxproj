@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0249611ADE95120085A7C2 /* QBQiuShiCommentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0249601ADE95120085A7C2 /* QBQiuShiCommentItem.m */; };
+		3A0249641ADEA5460085A7C2 /* QBQiuShiCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0249631ADEA5460085A7C2 /* QBQiuShiCommentTableViewCell.m */; };
 		3A0379B41ACAEA8F00E43BBB /* defaultContent.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A0379B31ACAEA8F00E43BBB /* defaultContent.jpg */; };
 		3A0C669B1AD26A920034D3E4 /* QBQiuShiCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0C669A1AD26A920034D3E4 /* QBQiuShiCommentController.m */; };
 		3A1466261AAF1290008E6F16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1466251AAF1290008E6F16 /* main.m */; };
@@ -85,6 +87,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A02495F1ADE95120085A7C2 /* QBQiuShiCommentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBQiuShiCommentItem.h; path = Models/QBQiuShiCommentItem.h; sourceTree = "<group>"; };
+		3A0249601ADE95120085A7C2 /* QBQiuShiCommentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBQiuShiCommentItem.m; path = Models/QBQiuShiCommentItem.m; sourceTree = "<group>"; };
+		3A0249621ADEA5460085A7C2 /* QBQiuShiCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBQiuShiCommentTableViewCell.h; path = CustomControls/TableViewCells/QBQiuShiCommentTableViewCell.h; sourceTree = "<group>"; };
+		3A0249631ADEA5460085A7C2 /* QBQiuShiCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBQiuShiCommentTableViewCell.m; path = CustomControls/TableViewCells/QBQiuShiCommentTableViewCell.m; sourceTree = "<group>"; };
 		3A0379B31ACAEA8F00E43BBB /* defaultContent.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultContent.jpg; sourceTree = "<group>"; };
 		3A0C66991AD26A920034D3E4 /* QBQiuShiCommentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBQiuShiCommentController.h; path = ViewControllers/QBQiuShiCommentController.h; sourceTree = "<group>"; };
 		3A0C669A1AD26A920034D3E4 /* QBQiuShiCommentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBQiuShiCommentController.m; path = ViewControllers/QBQiuShiCommentController.m; sourceTree = "<group>"; };
@@ -341,6 +347,8 @@
 				3AF86B441ADBF2A200F59A8D /* QBImageTableViewCell.m */,
 				3AF86B461ADBF38C00F59A8D /* QBTableViewCell.h */,
 				3AF86B471ADBF38C00F59A8D /* QBTableViewCell.m */,
+				3A0249621ADEA5460085A7C2 /* QBQiuShiCommentTableViewCell.h */,
+				3A0249631ADEA5460085A7C2 /* QBQiuShiCommentTableViewCell.m */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -440,6 +448,8 @@
 				3AB0E7441AAF2D9500F14047 /* QBVoteInfo.m */,
 				3A3A6C931ACC42BD00362511 /* QBImageSize.h */,
 				3A3A6C941ACC42BD00362511 /* QBImageSize.m */,
+				3A02495F1ADE95120085A7C2 /* QBQiuShiCommentItem.h */,
+				3A0249601ADE95120085A7C2 /* QBQiuShiCommentItem.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -642,9 +652,11 @@
 				3AB62C091AC9936C00CFD7EC /* SDWebImageCompat.m in Sources */,
 				3AB62C3B1AC993CD00CFD7EC /* UIAlertView+AFNetworking.m in Sources */,
 				3ABC9AC11ABAFD0B0065AB39 /* QBMeViewController.m in Sources */,
+				3A0249611ADE95120085A7C2 /* QBQiuShiCommentItem.m in Sources */,
 				3AF86B481ADBF38C00F59A8D /* QBTableViewCell.m in Sources */,
 				3AB62C0A1AC9936C00CFD7EC /* SDWebImageDecoder.m in Sources */,
 				3AB62C111AC9936C00CFD7EC /* UIImage+MultiFormat.m in Sources */,
+				3A0249641ADEA5460085A7C2 /* QBQiuShiCommentTableViewCell.m in Sources */,
 				3AF86B451ADBF2A200F59A8D /* QBImageTableViewCell.m in Sources */,
 				3AB62C121AC9936C00CFD7EC /* UIImage+WebP.m in Sources */,
 				3AB62C0C1AC9936C00CFD7EC /* SDWebImageDownloaderOperation.m in Sources */,
