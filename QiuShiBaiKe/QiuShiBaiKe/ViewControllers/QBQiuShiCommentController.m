@@ -28,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.allowsSelection = NO;
     QBNetwork *network = [[QBNetwork alloc] init];
     [network qiushiCommentsWithId:self.item.itemId];
     network.delegate = self;
@@ -73,6 +74,7 @@
             }
         }
         
+        ((QBTableViewCell*)cell).showButtons = NO;
         ((QBTableViewCell*)cell).item = self.item;
         CGFloat height = ((QBTableViewCell*)cell).height;
         if(cellHeights.count <= indexPath.row) {

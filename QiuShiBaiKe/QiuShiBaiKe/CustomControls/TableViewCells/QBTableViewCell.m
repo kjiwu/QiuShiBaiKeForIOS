@@ -112,19 +112,26 @@
     up.frame = CGRectMake(up_x, up_y, upSize.width, upSize.height);
     _height += upSize.height + kSubViewGap;
     
-    [btnUp setImage: [UIImage imageNamed:@"good.png"] forState: UIControlStateNormal];
-    btnUp.frame = CGRectMake(kSubViewGap, _height, kButtonSizeWidth, kButtonSizeHeight);
-    [btnUp addTarget:self action:@selector(upOrDownClick:) forControlEvents:UIControlEventTouchUpInside];
+    if(_showButtons) {
+        [btnUp setImage: [UIImage imageNamed:@"good.png"] forState: UIControlStateNormal];
+        btnUp.frame = CGRectMake(kSubViewGap, _height, kButtonSizeWidth, kButtonSizeHeight);
+        [btnUp addTarget:self action:@selector(upOrDownClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [btnDown setImage: [UIImage imageNamed:@"pinglun.png"] forState:UIControlStateNormal];
+        btnDown.frame = CGRectMake(kSubViewGap * 3 + kButtonSizeWidth, _height, kButtonSizeWidth, kButtonSizeHeight);
+        [btnDown addTarget:self action:@selector(upOrDownClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [btnComment setImage:[UIImage imageNamed:@"message.png"] forState:UIControlStateNormal];
+        btnComment.frame = CGRectMake(kSubViewGap * 5 + kButtonSizeWidth * 2, _height, kButtonSizeWidth, kButtonSizeHeight);
+        [btnComment addTarget:self action:@selector(commentClick) forControlEvents:UIControlEventTouchUpInside];
     
-    [btnDown setImage: [UIImage imageNamed:@"pinglun.png"] forState:UIControlStateNormal];
-    btnDown.frame = CGRectMake(kSubViewGap * 3 + kButtonSizeWidth, _height, kButtonSizeWidth, kButtonSizeHeight);
-    [btnDown addTarget:self action:@selector(upOrDownClick:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [btnComment setImage:[UIImage imageNamed:@"message.png"] forState:UIControlStateNormal];
-    btnComment.frame = CGRectMake(kSubViewGap * 5 + kButtonSizeWidth * 2, _height, kButtonSizeWidth, kButtonSizeHeight);
-    [btnComment addTarget:self action:@selector(commentClick) forControlEvents:UIControlEventTouchUpInside];
-    
-    _height += kButtonSizeHeight + kSubViewGap;
+        _height += kButtonSizeHeight + kSubViewGap;
+    }
+    else {
+        [btnUp setHidden: _showButtons];
+        [btnDown setHidden: _showButtons];
+        [btnComment setHidden: _showButtons];
+    }
 }
 
 #pragma mark - comment click

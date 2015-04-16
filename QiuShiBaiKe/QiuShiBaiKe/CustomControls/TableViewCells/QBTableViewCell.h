@@ -39,4 +39,6 @@
 
 @property (nonatomic, weak) id<QBItemTouchDelegate> delegate;
 
+@property (nonatomic, assign) BOOL showButtons;
+
 @end

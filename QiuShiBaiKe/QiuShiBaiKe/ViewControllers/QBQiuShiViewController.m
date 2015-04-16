@@ -13,14 +13,19 @@
 #import "QBLabelTableViewCell.h"
 #import "QBImageTableViewCell.h"
 #import "QBQiuShiCommentController.h"
+#import "QBNetworkGlobalData.h"
 
 static NSString* Identifier_Label = @"CustomLabelCell";
 static NSString* Identifier_Image = @"CustomLabelWithImageCell";
 
-#define LoadNewQiuShiDistance 200
+#define LoadNewQiuShiDistance 5
+
 
 
 @interface QBQiuShiViewController ()
+{
+    //UIRefreshControl *refreshControl;
+}
 
 @end
 
@@ -29,9 +34,8 @@ static NSString* Identifier_Image = @"CustomLabelWithImageCell";
     QBNetwork *network;
     int page;
     NSInteger selectedItemIndex;
-    BOOL navToCommit;
-    
-    NSMutableArray *qiushiItemCells;
+    NSMutableArray *cellHeights;
+    BOOL isRefreshing;
 }
 
 - (void)viewDidLoad {
@@ -40,22 +44,30 @@ static NSString* Identifier_Image = @"CustomLabelWithImageCell";
     network = [[QBNetwork alloc] init];
     network.delegate = self;
     
-    qiushiItems = [[NSMutableArray alloc] init];
     self.tableView.allowsSelection = NO;
-    
-    qiushiItemCells = [[NSMutableArray alloc] init];
-    
-    page = 1;
+    [self initParams];
     [network getQiuShiListWithPageAsync: page];
-    navToCommit = NO;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    
-    
 }
+
+- (void) initParams {
+    qiushiItems = [[NSMutableArray alloc] init];
+    cellHeights = [[NSMutableArray alloc] init];
+    page = 1;
+    isRefreshing = NO;
+}
+
+- (void) refreshQiuShi {
+    [self initParams];
+    [network getQiuShiListWithPageAsync: page];
+    isRefreshing = YES;
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"正在刷新糗事……"];
+}
+
 
 #pragma mark - Table view data source
 
@@ -70,7 +82,8 @@ static NSString* Identifier_Image = @"CustomLabelWithImageCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     QBTableViewCell* cell = nil;
-    QBQiuShiItem *item = [qiushiItems objectAtIndex: indexPath.row];
+    NSInteger row = indexPath.row;
+    QBQiuShiItem *item = [qiushiItems objectAtIndex:row];
     
     
     if(!item.haveImage) {
@@ -86,46 +99,70 @@ static NSString* Identifier_Image = @"CustomLabelWithImageCell";
         }
     }
     
-    cell.item = [qiushiItems objectAtIndex:indexPath.row];
+    cell.showButtons = YES;
+    cell.item = [qiushiItems objectAtIndex:row];
     cell.delegate = self;
-    [qiushiItemCells addObject:cell];
+    
+    if(cellHeights.count <= row) {
+        [cellHeights addObject:[NSNumber numberWithFloat:cell.height]];
+    }
+    else {
+        [cellHeights replaceObjectAtIndex:row withObject:[NSNumber numberWithFloat:cell.height]];
+    }
     
     return cell;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(qiushiItemCells.count == 0)
+    if(cellHeights.count == 0 || indexPath.row >= cellHeights.count)
         return 0;
     
-    return ((QBTableViewCell*)[qiushiItemCells objectAtIndex:indexPath.row]).height;
+    NSInteger row = indexPath.row;
+    return [[cellHeights objectAtIndex:row] floatValue];
+}
+
+- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(cellHeights.count < LoadNewQiuShiDistance) return;
+    
+    CGFloat distance = self.tableView.contentSize.height - self.tableView.contentOffset.y;
+    CGFloat loadNewDistance = 0;
+    for(int i = (int)cellHeights.count - LoadNewQiuShiDistance; i < cellHeights.count; i++) {
+        loadNewDistance += [cellHeights[i] floatValue];
+    }
+    
+    int currentPage = (int)indexPath.row / QiuShiBaiKe_GetCount + 1;
+    int totalPage = (int)qiushiItems.count / QiuShiBaiKe_GetCount;
+    BOOL needLoad = totalPage == currentPage ? YES : NO;
+    
+    if((distance <= loadNewDistance) && needLoad) {
+        [network getQiuShiListWithPageAsync: ++page];
+    }
 }
 
 #pragma mark - Navigation
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    navToCommit =[segue.identifier isEqualToString: @"CommitSegue"] || [segue.identifier isEqualToString: @"CommitSegueWithImage"];
     
-    if(navToCommit) {
-        
-    }
-}
-
-- (void) scrollViewDidScroll:(UIScrollView *)scrollView {
-    if(navToCommit) return;
-    
-//    float distance = scrollView.contentSize.height - (scrollView.contentOffset.y + scrollView.frame.size.height);
-//    if(!network.isLoading && (distance <= 0)) {
-//        page++;
-//        [network getQiuShiListWithPageAsync: page];
-//    }
 }
 
 #pragma mark --QBDownloadQiuShiDelegate--
 
 - (void) downloadQiuShiCompleted:(NSArray *)items {
+    if(qiushiItems.count == 0) {
+        self.refreshControl = [[UIRefreshControl alloc] init];
+        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新糗事"];
+        [self.refreshControl addTarget:self action:@selector(refreshQiuShi) forControlEvents:UIControlEventValueChanged];
+    }
+    
     [qiushiItems addObjectsFromArray: items];
     [self.tableView reloadData];
+    
+    if(isRefreshing) {
+        [self.refreshControl endRefreshing];
+        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新糗事"];
+        isRefreshing = NO;
+    }
 }
 
 #pragma mark --QBItemTouchDelegate--
